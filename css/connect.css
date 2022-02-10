@@ -1,0 +1,62 @@
+body{
+    background-color: #D5D5D5;
+}
+#formulaire{
+    width: 380px;
+    height: 380px;
+    margin : 10% auto;
+    background-color: #003F5A;
+    color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2), 
+                inset 1px 1px 1px 3px rgba(255, 254, 254, 0.2);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+}
+#formulaire:hover h2{
+    text-shadow: 2px 2px 15px rgba(255,255,255,0.5);
+}
+h2{
+    color : #FFFFFF;
+    margin: 5px 0 ;
+}
+#formulaire input{
+    width: 340px;
+    height: 30px;
+}
+#formulaire .bouton{
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+}
+#formulaire button{
+    background-color: #E5E5E5;
+    width: 120px;
+    height: 50px;
+    border : 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.erreur{
+    color : red;
+    background-color: #D5D5D5;
+    padding: 3px;
+    text-align: center;
+}
+
+#loader {
+    border: 14px solid #f3f3f3; /* Light grey */
+    border-top: 14px solid #003F5A; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display : none;
+    animation: spin 1s linear infinite;
+    margin : 10% auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

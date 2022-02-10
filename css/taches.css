@@ -1,0 +1,93 @@
+body{
+    background-color: #D5D5D5;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size : 28px;
+}
+ion-icon{
+    font-size: 50px;
+    margin-top: -10px;
+    padding:0;
+}
+.navbar{
+    background-color: #003F5A;
+    color : #FFFFFF;
+    height : 100px;
+}
+.navbar #ul-nav{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+.navbar #ul-nav li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin : 30px;
+    font-size: 32px;
+}
+.navbar #ul-nav li a{
+    color : #D5D5D5;
+    text-decoration: none;
+}
+.navbar #ul-nav li a:hover{
+    color : #FFFFFF;
+    text-decoration: underline;
+    text-shadow: 2px 2px 15px rgba(255,255,255,0.5);
+}
+
+#container{
+    width : 480px;
+    margin : 0 auto;
+}
+
+#container #input-text{
+    width : 320px;
+    height : 28px;
+    border-right-color: #003F5A;
+}
+
+#container button{
+    height : 34px;
+    border-radius: 0 10px 10px 0;
+    border-color: #003F5A;
+    background-color: #003F5A;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#container .form{
+    display: flex;
+    align-items: center;
+}
+
+#ul-parent{
+    margin : 20px 0 0 0;
+    padding: 0;
+    list-style-type: none;
+}
+#ul-parent li{
+    background-color: #003F5A;
+    color : #D5D5D5;
+    padding: 20px 30px;
+    margin : 10px 0;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#ul-parent li:hover{
+    color : #FFFFFF;
+}
+
+.suppr{
+    float: right;
+    background-color: azure;
+    width: 22px;
+    height: 22px;
+    border-radius : 5px;
+    text-align: center;
+    border : 1px solid #000000;
+    padding: 5px;
+    margin: -5px 0 0 0;
+}

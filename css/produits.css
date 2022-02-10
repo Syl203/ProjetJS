@@ -1,0 +1,89 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: #D5D5D5;
+}
+h2{
+    color:#003F5A;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+ion-icon{
+    font-size: 50px;
+    margin-top: -10px;
+    padding:0;
+}
+.navbar{
+    background-color: #003F5A;
+    color : #FFFFFF;
+    height : 100px;
+}
+.navbar #ul-nav{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+.navbar #ul-nav li{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin : 30px;
+    font-size: 32px;
+}
+.navbar #ul-nav li img{
+    color: #FFFFFF;
+}
+.navbar #ul-nav li a{
+    color : #D5D5D5;
+    text-decoration: none;
+}
+.navbar #ul-nav li a:hover{
+    color : #FFFFFF;
+    text-decoration: underline;
+    text-shadow: 2px 2px 15px rgba(255,255,255,0.5);
+}
+
+.container{
+    display: flex;
+    width: 100%;
+}
+#produits{
+    width: 70%;
+    height : 100%;
+    text-align: center;
+    border-right : 2px dotted #003F5A;
+}
+ul.produits{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+li.produit{
+    list-style-type: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.prod{
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    transition-duration: 0.5s;
+}
+.prod:hover{
+    transform: scale(1.01);
+}
+.prod span{
+    display: block;
+    margin-top: 8px;
+}
+.prod span.titre{
+    margin-top: 12px;
+    font-weight: bold;
+}
+#panier{
+    width: 30%;
+    text-align: center;
+}
+#ulPanier{
+    list-style-type: none;
+}
