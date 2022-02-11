@@ -1,0 +1,32 @@
+@media screen and (max-width: 1280px){
+    nav ul li a{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width : 990px) {
+    #burger{
+        display: block;
+        cursor: pointer;
+        position : absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .navbar{
+        height:100%;
+    }
+    .navbar #ul-nav{
+        display: block;
+        list-style-type: none;
+    }
+    nav ul li{
+        display:none;
+    }
+    .topnav.responsive{
+        display : block;
+    }
+    .topnav.responsive li{
+        display:block;
+    }
+    
+}

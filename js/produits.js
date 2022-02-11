@@ -16,6 +16,24 @@ let produits = [
         nom : "Fender Stratocaster",
         image : "fender.jpg",
         prix : 1099
+    },
+    {
+        id : 4,
+        nom : "Samick Torino",
+        image : "samick.jpg",
+        prix : 349
+    },
+    {
+        id : 5,
+        nom : "Ibanez Iceman",
+        image : "ibanez.jpg",
+        prix : 699
+    },
+    {
+        id : 6,
+        nom : "Vola Blaze",
+        image : "vola.jpg",
+        prix : 2000
     }
 ];
 
@@ -51,14 +69,38 @@ function afficherPanier(){
         produitAjoutePanier += 
         `
         <li id="produit-${element.id}">
-            <div class="prod">
-                <img src="img/${element.image}" width="120px" />
-                <span class="titre">${element.nom}</span>
-                <span class="prix">Prix : ${element.prix}€</span>
+            <div class="produit-panier">
+                <img src="img/${element.image}" width="80px" />
+                <div class="prod-spec">
+                    <span class="titre-panier">${element.nom}</span><br />
+                    <span class="prix-panier">Prix : ${element.prix}€</span><br>
+                </div>
+                <div>
+                    <select name="quantite">
+                    <option value="0" disabled>Quantité</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
+                    </select>
+                    <br>
+                    
+                </div>
+                <span class="supprimerArticle" onclick="supprArticle()">X</span>
             </div>
         </li>
         `
         ulPanier.innerHTML = produitAjoutePanier;
     });
     
+}
+
+function showMenu(){
+    let ouvrir = document.getElementById("ul-nav");
+    if(ouvrir.className === "topnav"){
+        ouvrir.className += " responsive";
+    }else{
+        ouvrir.className = "topnav";
+    }
 }
