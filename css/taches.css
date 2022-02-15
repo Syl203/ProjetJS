@@ -15,6 +15,7 @@ ion-icon{
 .navbar{
     background-color: #003F5A;
     color : #FFFFFF;
+    min-height: 100px;
     height : 100px;
 }
 .navbar #ul-nav{
@@ -37,20 +38,28 @@ ion-icon{
     text-decoration: underline;
     text-shadow: 2px 2px 15px rgba(255,255,255,0.5);
 }
+#burger{
+    display: none;
+}
 
 #container{
     width : 480px;
-    margin : 0 auto;
+    margin : 20px auto;
+    padding: 10px;
+    background-color: #D5D5D5;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+    border-radius : 0 40px 0 0;
 }
 
 #container #input-text{
     width : 320px;
-    height : 28px;
+    height : 36px;
     border-right-color: #003F5A;
+    font-size : 30px;
 }
 
 #container button{
-    height : 34px;
+    height : 42px;
     border-radius: 0 10px 10px 0;
     border-color: #003F5A;
     background-color: #003F5A;

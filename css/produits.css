@@ -15,6 +15,7 @@ ion-icon{
 .navbar{
     background-color: #003F5A;
     color : #FFFFFF;
+    min-height: 100px;
     height : 100px;
 }
 .navbar #ul-nav{
@@ -86,7 +87,7 @@ li.produit{
     font-weight: bold;
 }
 #panier{
-    width: 30%;
+    width: 25%;
     text-align: center;
 }
 #panier img{

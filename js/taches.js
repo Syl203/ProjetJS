@@ -27,7 +27,7 @@ function ajouterTache(){
     li.style.cursor = "pointer";
     li.onclick = function(){
         
-        li.style.backgroundColor = "#50D0E0";
+        li.style.backgroundColor = "rgba(50,100,150,0.5)";
         li.style.textDecoration = "line-through";
         li.style.textAlign = "center";
         
@@ -36,4 +36,13 @@ function ajouterTache(){
     span.appendChild(cross);
     li.appendChild(span);
     
+}
+
+function showMenu(){
+    let ouvrir = document.getElementById("ul-nav");
+    if(ouvrir.className === "topnav"){
+        ouvrir.className += " responsive";
+    }else{
+        ouvrir.className = "topnav";
+    }
 }

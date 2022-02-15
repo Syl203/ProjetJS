@@ -15,6 +15,7 @@ ion-icon{
 .navbar{
     background-color: #003F5A;
     color : #FFFFFF;
+    min-height: 100px;
     height : 100px;
 }
 .navbar #ul-nav{
@@ -36,4 +37,7 @@ ion-icon{
     color : #FFFFFF;
     text-decoration: underline;
     text-shadow: 2px 2px 15px rgba(255,255,255,0.5);
+}
+#burger{
+    display: none;
 }
