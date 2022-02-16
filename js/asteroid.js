@@ -10,6 +10,8 @@ const TAILLE_ASTEROIDES = 100;
 const ASTEROIDES_VERT = 10;
 const MONTRER_LIMITES_COLLISIONS = true;
 const DUREE_EXPLOSION = 0.3;
+const DUREE_INVULNERABILITE = 2; // Invulnérabilité en secondes
+const CLIGNOTEMENT_VAISSEAU = 0.2;
 
 let canv = document.getElementById("canvasJeu");
 let ctx = canv.getContext("2d");
@@ -101,7 +103,9 @@ function nouveauVaisseau(){
         x: canv.width / 2,
         y: canv.height / 2,
         r: TAILLE_VAISSEAU / 2,
-        a: 90 / 180 * Math.PI, // COnversio en radians
+        a: 90 / 180 * Math.PI, // Conversion en radians
+        clignotement : Math.ceil(CLIGNOTEMENT_VAISSEAU * FPS),
+        clignotementNum : Math.ceil(DUREE_INVULNERABILITE / CLIGNOTEMENT_VAISSEAU),
         explodeTime: 0,
         rot: 0,
         thrusting: false,
@@ -114,6 +118,7 @@ function nouveauVaisseau(){
 
 function update(){
 
+    let blinkOn = vaisseau.clignotementNum % 2 == 0;
     let explosion = vaisseau.explodeTime > 0;
     // Déssiner l'espace
     ctx.fillStyle = "#000000";
@@ -131,23 +136,34 @@ function update(){
 
     // Dessiner le vaisseau
     if(!explosion){
-        ctx.strokeStyle = "white";
-        ctx.lineWidth = TAILLE_VAISSEAU / 20;
-        ctx.beginPath();
-        ctx.moveTo(
-            vaisseau.x + 4/3 * vaisseau.r * Math.cos(vaisseau.a),
-            vaisseau.y - 4/3 * vaisseau.r * Math.sin(vaisseau.a)
-        );
-        ctx.lineTo(
-            vaisseau.x - vaisseau.r * (2/3 * Math.cos(vaisseau.a)+ Math.sin(vaisseau.a)),
-            vaisseau.y + vaisseau.r * (2/3 * Math.sin(vaisseau.a)- Math.cos(vaisseau.a))
-        );
-        ctx.lineTo(
-            vaisseau.x - vaisseau.r * (2/3*Math.cos(vaisseau.a)- Math.sin(vaisseau.a)),
-            vaisseau.y + vaisseau.r * (2/3*Math.sin(vaisseau.a)+ Math.cos(vaisseau.a))
-        );
-        ctx.closePath();
-        ctx.stroke();
+        if(blinkOn){
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = TAILLE_VAISSEAU / 20;
+            ctx.beginPath();
+            ctx.moveTo(
+                vaisseau.x + 4/3 * vaisseau.r * Math.cos(vaisseau.a),
+                vaisseau.y - 4/3 * vaisseau.r * Math.sin(vaisseau.a)
+            );
+            ctx.lineTo(
+                vaisseau.x - vaisseau.r * (2/3 * Math.cos(vaisseau.a)+ Math.sin(vaisseau.a)),
+                vaisseau.y + vaisseau.r * (2/3 * Math.sin(vaisseau.a)- Math.cos(vaisseau.a))
+            );
+            ctx.lineTo(
+                vaisseau.x - vaisseau.r * (2/3*Math.cos(vaisseau.a)- Math.sin(vaisseau.a)),
+                vaisseau.y + vaisseau.r * (2/3*Math.sin(vaisseau.a)+ Math.cos(vaisseau.a))
+            );
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        if(vaisseau.clignotementNum > 0){
+            vaisseau.clignotement--;
+            if(vaisseau.clignotement == 0){
+                vaisseau.clignotement = Math.ceil(CLIGNOTEMENT_VAISSEAU * FPS);
+                vaisseau.clignotementNum--;
+            }
+        }
+
     }else{
         // On dessine l'explosion
         ctx.fillStyle = "darkred";

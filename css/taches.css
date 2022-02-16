@@ -26,7 +26,7 @@ ion-icon{
 }
 .navbar #ul-nav li{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin : 30px;
+    padding: 30px;
     font-size: 32px;
 }
 .navbar #ul-nav li a{
@@ -46,7 +46,7 @@ ion-icon{
     width : 480px;
     margin : 20px auto;
     padding: 10px;
-    background-color: #D5D5D5;
+    background-color: rgba(255,255,255,0.5);
     box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
     border-radius : 0 40px 0 0;
 }

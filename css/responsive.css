@@ -27,6 +27,11 @@
     }
     .topnav.responsive li{
         display:block;
+        padding : 0;
+        margin: 0;
+    }
+    .produit-panier img{
+        display: none;
     }
     
 }

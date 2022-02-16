@@ -68,37 +68,47 @@ function afficherPanier(){
         
         produitAjoutePanier += 
         `
-        <li id="produit-${element.id}">
-            <div class="produit-panier">
+        <li id="produitAjoute-${element.id}" class="produit-panier">
                 <img src="img/${element.image}" width="80px" />
                 <div class="prod-spec">
                     <span class="titre-panier">${element.nom}</span><br />
                     <span class="prix-panier">Prix : ${element.prix}€</span><br>
-                </div>
-                <div>
                     <select name="quantite">
-                    <option value="0" disabled>Quantité</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                        <option value="0" selected>Quantité</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
-                    <br>
-                    
                 </div>
-                <span class="supprimerArticle" onclick="supprArticle()">X</span>
-            </div>
         </li>
         `
-        ulPanier.innerHTML = produitAjoutePanier;
-    });
-    
-}
 
-function supprArticle(){
+});
+ulPanier.innerHTML = produitAjoutePanier
+        
+panier.forEach(supprimer => {
+    let liTest = document.getElementById(`produitAjoute-${supprimer.id}`)
+    let liTab = document.getElementById(`produit-${supprimer.id}`);
+    let btnSuppr = document.createElement("button");
+
+    btnSuppr.id = `btn-suppr-${supprimer.id}`;
+    btnSuppr.className = "btn-suppr";
+    btnSuppr.innerHTML = "x";
     
+    liTest.appendChild(btnSuppr);
+    btnSuppr.addEventListener("click", function(){
+       liTab.style.display = "block";
+       let panierIndex = panier.indexOf(supprimer);
+       panier.splice(panierIndex,1);
+       liTest.remove();
+    });
+   
+});
 }
+    
+
 
 function showMenu(){
     let ouvrir = document.getElementById("ul-nav");
