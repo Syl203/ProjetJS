@@ -3,7 +3,7 @@ const TAILLE_VAISSEAU = 30; // Taille du vaisseau
 const VITESSE_ROTATION = 360; // Vitesse de rotation
 const ACCELERATION_VAISSEAU = 5;
 const FRICTION = 0.7; 
-const ASTEROIDES_JAG = 0.5;
+const ASTEROIDES_JAG = 0.2;
 const NB_ASTEROIDES = 10;
 const VITESSE_ASTEROIDE = 50;
 const TAILLE_ASTEROIDES = 100;
@@ -225,6 +225,8 @@ function update(){
                 y + r * offset[j] * Math.sin(a + j * Math.PI * 2 / vert)
             );
         }
+        ctx.fillStyle = "rgb(190,190,190)";
+        ctx.fill();
         ctx.closePath();
         ctx.stroke();
 

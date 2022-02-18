@@ -36,8 +36,11 @@ let produits = [
         prix : 2000
     }
 ];
+let h2 = document.getElementById("h2-panier");
+let h3 = document.getElementById("h3-panier");
 
 let panier = [];
+
 
 produits.forEach(element => {
     let ulParent = document.getElementById("parent");
@@ -55,14 +58,16 @@ produits.forEach(element => {
     li.addEventListener("click",function(){
         li.style.display = "none";
         panier.push(element);
-        console.log(panier);
+        
         afficherPanier();
     });
     ulParent.appendChild(li);
+    
 });
 
 function afficherPanier(){
     let produitAjoutePanier = "";
+    let prixTotal = 0;
     panier.forEach(element => {
         let ulPanier = document.getElementById("ulPanier");
         
@@ -73,7 +78,7 @@ function afficherPanier(){
                 <div class="prod-spec">
                     <span class="titre-panier">${element.nom}</span><br />
                     <span class="prix-panier">Prix : ${element.prix}€</span><br>
-                    <select name="quantite">
+                    <select name="quantite" id="select-${element.id}">
                         <option value="0" selected>Quantité</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -82,11 +87,34 @@ function afficherPanier(){
                         <option value="5">5</option>
                     </select>
                 </div>
+                <div id="prixHT-${element.id}"></div>
         </li>
         `
-
+        /*let selectNum = document.getElementById(`select-${element.id}`);
+        console.log(selectNum);
+        selectNum.addEventListener("change", function(){
+            alert("changement de quantité");
+        });*/
+        
+        if(panier != ""){
+            prixTotal = `${parseInt(prixTotal) + parseInt(element.prix)}`;
+            h2.innerHTML = "PANIER";
+            h3.innerHTML = `${panier.length} article(s) - Total : ${prixTotal} €`;
+        }
+        ulPanier.innerHTML = produitAjoutePanier;
+        console.log(prixTotal);
 });
-ulPanier.innerHTML = produitAjoutePanier
+
+/*
+panier.forEach(panierPlein =>{
+    let prixHT = document.getElementById(`prixHT-${panierPlein.id}`);
+    console.log(`${panierPlein.prix}`);
+    prixTotal = parseInt(prixHT)  + prixTotal;
+    console.log("prixtotol " + prixTotal)
+
+})
+*/
+
         
 panier.forEach(supprimer => {
     let liTest = document.getElementById(`produitAjoute-${supprimer.id}`)
@@ -103,6 +131,12 @@ panier.forEach(supprimer => {
        let panierIndex = panier.indexOf(supprimer);
        panier.splice(panierIndex,1);
        liTest.remove();
+       h3.innerHTML = `${panier.length} article(s) - Total : ${prixTotal} €`;
+       if(panier == ""){
+            h2.innerHTML = `PANIER (VIDE)`;
+            h3.innerHTML = ``;
+        }
+       
     });
    
 });

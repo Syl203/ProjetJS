@@ -1,5 +1,5 @@
 const email = "ms@site.fr";
-const password = "azerty";
+const password = "azer";
 let nombre = Math.round(Math.random() * 1000);
 let code = document.getElementById("labelNumber");
 code.innerHTML = "Entrez le code : " + nombre;
